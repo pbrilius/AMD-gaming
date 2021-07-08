@@ -1,0 +1,203 @@
+/*!
+ * 2007-2021 PayPal
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@prestashop.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade PrestaShop to newer
+ * versions in the future. If you wish to customize PrestaShop for your
+ * needs please refer to http://www.prestashop.com for more information.
+ *
+ * @author 2007-2021 PayPal
+ * @copyright PayPal
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ */
+
+.pp-settings-link-on {
+  background: $default !important;
+  color: #000 !important;
+
+  .panel, .panel-footer {
+    background: $default !important;
+  }
+}
+
+.pp-settings-tab-on {
+  border-bottom: 3px solid #3ed2f0;
+}
+
+.stretchHeightForm form {
+  height: 100%;
+}
+
+.stretchHeightForm .panel {
+  height: 100%;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+
+.tick li {
+  margin-bottom: 40px;
+}
+
+.pp-w-100, .bootstrap .pp-w-100 {
+  width: 100% !important;
+}
+
+.pp-select-preview-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  .pp-select-container {
+    flex-basis: 75%;
+  }
+
+  .pp-preview-container {
+    display: flex;
+    flex-basis: 25%;
+    justify-content: center;
+    align-content: center;
+
+    .pp-preview {
+      width: 10vw;
+      height: 10vw;
+      background-size: cover;
+      background-color: #7b8a8b;
+      position: absolute;
+      top: -45px;
+    }
+  }
+}
+
+[widget-code-container] {
+  width: 75%;
+}
+
+[customize-style-shortcut-container] {
+  display: flex;
+  justify-content: space-between;
+
+  [setting-section] {
+    display: flex;
+    flex-basis: 60%;
+    flex-direction: column;
+
+    [current-view-section] {
+      display: flex;
+    }
+
+    [button-container] {
+      position: relative;
+    }
+  }
+
+  [preview-section] {
+    flex-basis: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
+}
+
+[field-row] {
+  display: flex;
+
+  [label] {
+    flex-basis: 20%;
+  }
+
+  [field] {
+    flex-basis: 80%;
+  }
+}
+
+[chain-input-container] {
+  display: flex;
+  justify-content: space-around;
+
+  [item] {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.pp__label {
+  font-size: 13px;
+}
+
+.displayModeSection {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+
+  [field] {
+    flex-basis: 75%;
+  }
+}
+
+.icon-lightbulb::before {
+  content: '\f0eb' !important;
+}
+
+[installment-banner-style-section] {
+  flex-basis: 30%;
+}
+
+[installment-preview-container] {
+  flex-basis: 70%;
+}
+
+[installment-page-displaying-setting-container] {
+  .form-group {
+    display: flex;
+    align-items: center;
+  }
+
+  input[type="checkbox"] {
+    margin-top: 0;
+    margin-right: 10px;
+  }
+
+  label {
+    padding-top: 0 !important;
+  }
+}
+
+@media (max-width:768px) {
+  .setup-blocks {
+    flex-direction: column;
+  }
+
+  .block-preview-button-context {
+    flex-direction: column;
+
+    [config-block] {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+  }
+}

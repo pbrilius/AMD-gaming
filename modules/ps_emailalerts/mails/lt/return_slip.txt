@@ -1,0 +1,29 @@
+{shop_url}
+
+Sveiki,
+
+Gavote naują grąžinimo užklausimą {shop_name}.
+
+Grąžinimo informacija
+
+Užsakymas: {order_name} Pateiktas {date}
+
+Klientas: {firstname} {lastname}, ({email})
+
+Kodas	Prekė	Kiekis   {items}
+
+Pristatymo adresas
+
+{delivery_block_html}
+
+Sąskaitos siuntimo adresas
+
+{invoice_block_html}
+
+Kliento žinutė:
+
+{message}
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

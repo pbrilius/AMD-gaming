@@ -1,0 +1,19 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Dėkojame už Jūsų užsakymą {order_name} parduotuvėje {shop_name}
+
+Prekė (-s) atsisiuntimui
+
+Jūs turite {nbProducts} prekę(ių), kurią galite atsisiųsti naudodami šią(-as) nuorodą(-as):
+
+{virtualProductsTxt}
+
+Norėdami sekti savo užsakymą ir atsisiųsti sąskaitą, eikite į [Užsakymų istorija ir informacija]({history_url}) skiltį savo paskyroje.
+
+Jei pirkote su svečio paskyra, savo užsakymą galite sekti el. parduotuvės [Siuntinio sekimas]({guest_tracking_url}) skyriuje.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

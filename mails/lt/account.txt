@@ -1,0 +1,27 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Dėkojame, kad susikūrėte kliento paskyrą mūsų el. parduotuvėje {shop_name}.
+
+Jūsų prisijungimo prie {shop_name} informacija
+
+Jūsų prisijungimo informacija:
+
+El. pašto adresas: {email}
+
+Svarbūs saugumo patarimai:
+
+1. Saugokite savo paskyros prisijungimo duomenis.
+
+2. Niekam neatskleiskite savo prisijungimo duomenų.
+
+3. Reguliariai keiskite slaptažodį.
+
+4. Jei įtariate, kad kažkas naudoja jūsų paskyrą neteisėtai, prašome mums iš karto pranešti.
+
+Dabar galite atlikti užsakymus mūsų el. parduotuvėje: [{shop_name}]({shop_url})
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

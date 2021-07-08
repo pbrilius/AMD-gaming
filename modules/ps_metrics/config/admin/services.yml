@@ -1,0 +1,513 @@
+services:
+  ps_metrics.module:
+    class: 'Ps_metrics'
+    factory: [ 'Module', 'getInstanceByName' ]
+    arguments:
+      - 'ps_metrics'
+
+  ps_metrics.context.prestashop:
+    class: 'PrestaShop\Module\Ps_metrics\Context\PrestaShopContext'
+    public: true
+
+  ps_metrics.tracker.segment:
+    class: 'PrestaShop\Module\Ps_metrics\Tracker\Segment'
+    public: true
+    arguments:
+      - '@ps_metrics.env.segment'
+      - '@ps_metrics.helper.segment'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.helper.shop'
+
+  ps_metrics.env.segment:
+    class: 'PrestaShop\Module\Ps_metrics\Environment\SegmentEnv'
+    public: true
+
+  ps_metrics.env.cache:
+    class: 'PrestaShop\Module\Ps_metrics\Environment\CacheEnv'
+    public: true
+
+  ps_metrics.env.analytics:
+    class: 'PrestaShop\Module\Ps_metrics\Environment\AnalyticsEnv'
+    public: true
+
+  ps_metrics.validation.retrievedata:
+    class: 'PrestaShop\Module\Ps_metrics\Validation\RetrieveData'
+    public: true
+
+  ps_metrics.validation.processselectaccountanalytics:
+    class: 'PrestaShop\Module\Ps_metrics\Validation\SelectAccountAnalytics'
+    public: true
+
+  ps_metrics.translation.dashboard:
+    class: 'PrestaShop\Module\Ps_metrics\Translation\DashboardTranslation'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+
+  ps_metrics.translation.settings:
+    class: 'PrestaShop\Module\Ps_metrics\Translation\SettingsTranslation'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+
+  ps_metrics.cache.data:
+    class: 'PrestaShop\Module\Ps_metrics\Cache\DataCache'
+    public: true
+    arguments:
+      - '@ps_metrics.cache.specificdirectory'
+      - '@ps_metrics.env.cache'
+      - '@ps_metrics.helper.json'
+      - '@ps_metrics.helper.logger'
+
+  ps_metrics.cache.specificdirectory:
+    class: 'PrestaShop\Module\Ps_metrics\Cache\DirectoryCache'
+    public: true
+
+  ps_metrics.adapter.link:
+    class: 'PrestaShop\Module\Ps_metrics\Adapter\LinkAdapter'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.helper.tools'
+
+  ps_metrics.repository.configuration:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\ConfigurationRepository'
+    public: true
+    arguments:
+      - '@ps_metrics.context.prestashop'
+
+  ps_metrics.repository.hookmodule:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\HookModuleRepository'
+    public: true
+
+  ps_metrics.repository.orders:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\OrdersRepository'
+    public: true
+    arguments:
+      - '@ps_metrics.helper.db'
+      - '@ps_metrics.helper.shop'
+      - '@ps_metrics.context.prestashop'
+      -
+  ps_metrics.repository.payment:
+    class: 'PrestaShop\Module\Ps_metrics\Repository\PaymentRepository'
+    public: true
+
+  ps_metrics.provider.shops:
+    class: 'PrestaShop\Module\Ps_metrics\Provider\ShopsProvider'
+    public: true
+    arguments:
+      - '@ps_metrics.helper.tools'
+      - '@ps_metrics.helper.shop'
+
+  ps_metrics.provider.analyticsaccountslist:
+    class: 'PrestaShop\Module\Ps_metrics\Provider\AnalyticsAccountsListProvider'
+    public: true
+    arguments:
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.helper.json'
+      - '@ps_metrics.api.analytics'
+
+  ps_metrics.provider.googletag:
+    class: 'PrestaShop\Module\Ps_metrics\Provider\GoogleTagProvider'
+    public: true
+    arguments:
+      - '@ps_metrics.api.http'
+
+  ps_metrics.module.install:
+    class: 'PrestaShop\Module\Ps_metrics\Module\Install'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.repository.hookmodule'
+
+  ps_metrics.module.uninstall:
+    class: 'PrestaShop\Module\Ps_metrics\Module\Uninstall'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_accounts.facade'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.api.analytics'
+
+  ps_metrics.module.dashboard.modules:
+    class: 'PrestaShop\Module\Ps_metrics\Module\DashboardModules'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.repository.configuration'
+
+  ps_metrics.module.gainstaller:
+    class: 'PrestaShop\Module\Ps_metrics\Module\GAInstaller'
+    public: true
+    arguments:
+      - '@ps_metrics.adapter.link'
+      - '@ps_metrics.helper.module'
+      - '@ps_metrics.helper.tools'
+
+  ps_metrics.helper.number:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\NumberHelper'
+    public: true
+
+  ps_metrics.helper.module:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ModuleHelper'
+    public: true
+
+  ps_metrics.helper.tools:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ToolsHelper'
+    public: true
+
+  ps_metrics.helper.shop:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ShopHelper'
+    public: true
+
+  ps_metrics.helper.logger:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\LoggerHelper'
+    public: true
+
+  ps_metrics.helper.segment:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\SegmentHelper'
+    public: true
+    arguments:
+      - '@ps_metrics.env.segment'
+
+  ps_metrics.helper.api:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\ApiHelper'
+    public: true
+
+  ps_metrics.helper.json:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\JsonHelper'
+    public: true
+    arguments:
+      - '@ps_metrics.helper.logger'
+
+  ps_metrics.helper.data:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\DataHelper'
+    public: true
+
+  ps_metrics.helper.db:
+    class: 'PrestaShop\Module\Ps_metrics\Helper\DbHelper'
+    public: true
+    arguments:
+      - '@ps_metrics.cache.data'
+
+  ps_metrics.presenter.store.store:
+    class: 'PrestaShop\Module\Ps_metrics\Presenter\Store\StorePresenter'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.presenter.store.context'
+      - '@ps_metrics.presenter.store.dashboard'
+      - '@ps_metrics.presenter.store.settings'
+
+  ps_metrics.presenter.store.context:
+    class: 'PrestaShop\Module\Ps_metrics\Presenter\Store\Context\ContextPresenter'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_accounts.facade'
+      - '@ps_metrics.adapter.link'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.provider.shops'
+      - '@ps_metrics.module.dashboard.modules'
+      - '@ps_metrics.provider.analyticsaccountslist'
+      - '@ps_metrics.api.http'
+      - '@ps_metrics.helper.tools'
+      - '@ps_metrics.helper.db'
+
+  ps_metrics.presenter.store.dashboard:
+    class: 'PrestaShop\Module\Ps_metrics\Presenter\Store\Dashboard\DashboardPresenter'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.translation.dashboard'
+      - '@ps_metrics.adapter.link'
+
+  ps_metrics.presenter.store.settings:
+    class: 'PrestaShop\Module\Ps_metrics\Presenter\Store\Settings\SettingsPresenter'
+    public: true
+    arguments:
+      - '@ps_metrics.module'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.translation.settings'
+      - '@ps_metrics.adapter.link'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.provider.shops'
+      - '@ps_metrics.provider.analyticsaccountslist'
+      - '@ps_metrics.provider.googletag'
+      - '@ps_metrics.module.gainstaller'
+      - '@ps_metrics.api.http'
+
+  ps_metrics.data.tipscards:
+    class: 'PrestaShop\Module\Ps_metrics\Data\TipsCardsData'
+    public: true
+    arguments:
+      - '@ps_metrics.api.analytics'
+
+  ps_metrics.kpi.configuration:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\Configuration\KpiConfiguration'
+    public: true
+
+  ps_metrics.kpi.kpi:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\Kpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+
+  ps_metrics.kpi.manager:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\KpiManager'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+
+  ps_metrics.kpi.strategyinterface:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\KpiStrategyInterface'
+    public: true
+
+  ps_metrics.kpi.visits:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\VisitsKpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+      - '@ps_metrics.helper.data'
+      - '@ps_metrics.cache.data'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.api.analytics'
+
+  ps_metrics.kpi.total:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\TotalKpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+      - '@ps_metrics.kpi.visits'
+      - '@ps_metrics.kpi.orders'
+      - '@ps_metrics.kpi.revenues'
+
+  ps_metrics.kpi.revenues:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\RevenuesKpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+      - '@ps_metrics.helper.data'
+      - '@ps_metrics.repository.orders'
+
+  ps_metrics.kpi.orders:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\OrdersKpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+      - '@ps_metrics.helper.data'
+      - '@ps_metrics.repository.orders'
+      - '@ps_metrics.helper.number'
+      - '@ps_metrics.kpi.revenues'
+      - '@ps_metrics.repository.payment'
+
+  ps_metrics.kpi.conversion:
+    class: 'PrestaShop\Module\Ps_metrics\Kpi\ConversionKpi'
+    public: true
+    arguments:
+      - '@ps_metrics.kpi.configuration'
+      - '@ps_metrics.helper.number'
+      - '@ps_metrics.repository.configuration'
+      - '@ps_metrics.kpi.visits'
+      - '@ps_metrics.kpi.orders'
+      - '@ps_metrics.kpi.revenues'
+
+  ps_metrics.middleware:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\Middleware'
+    public: true
+
+  ps_metrics.middleware.sentry:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\SentryMiddleware'
+    public: true
+
+  ps_metrics.middleware.response:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\ResponseMiddleware'
+    public: true
+
+  ps_metrics.middleware.log:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\LogMiddleware'
+    public: true
+    arguments:
+      - '@ps_metrics.helper.logger'
+
+  ps_metrics.middleware.response.default:
+    class: 'PrestaShop\Module\Ps_metrics\Middleware\CheckResponseMiddleware'
+    public: true
+    arguments:
+      - '@ps_metrics.helper.json'
+
+  ps_metrics.api.client.factory:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\ClientManager'
+    public: true
+    arguments:
+      - '@ps_metrics.middleware.response.default'
+      - '@ps_metrics.middleware.log'
+      - '@ps_metrics.middleware.sentry'
+      - '@ps_metrics.middleware.response'
+      - '@ps_metrics.handler.guzzleapi'
+
+  ps_metrics.api.client.http:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\HttpClient'
+    public: true
+    arguments:
+      - '@ps_metrics.middleware.response.default'
+      - '@ps_metrics.middleware.log'
+      - '@ps_metrics.middleware.sentry'
+      - '@ps_metrics.middleware.response'
+      - '@ps_metrics.handler.guzzleapi'
+
+  ps_metrics.api.client.analytics:
+    class: 'PrestaShop\Module\Ps_metrics\Api\Client\AnalyticsClient'
+    public: true
+    arguments:
+      - '@ps_accounts.facade'
+      - '@ps_metrics.middleware.response.default'
+      - '@ps_metrics.middleware.log'
+      - '@ps_metrics.middleware.sentry'
+      - '@ps_metrics.middleware.response'
+      - '@ps_metrics.handler.guzzleapi'
+
+  ps_metrics.api.manager:
+    class: 'PrestaShop\Module\Ps_metrics\Api\ApiManager'
+    public: true
+
+  ps_metrics.api.analytics:
+    class: 'PrestaShop\Module\Ps_metrics\Api\AnalyticsApi'
+    public: true
+    arguments:
+      - '@ps_metrics.api.client.analytics'
+      - '@ps_metrics.context.prestashop'
+      - '@ps_metrics.env.analytics'
+      - '@ps_metrics.helper.json'
+
+  ps_metrics.graphql.dataloaders:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\DataLoaders'
+    public: true
+    arguments:
+      - '@ps_metrics.cache.data'
+      - '@ps_metrics.helper.json'
+
+  ps_metrics.graphql.dataloaders.factory:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\DataLoaderFactory'
+    public: true
+
+  ps_metrics.graphql.dataloaders.sessions:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SessionsDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.bouncerate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\BounceRateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.avgsessions:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\AvgSessionsDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.uniqueusers:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\UniqueUsersDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.sessionsgroupbydate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SessionsGroupByDateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.sessionsgroupbyhour:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SessionsGroupByHourDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.revenuegross:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\RevenueGrossDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.sessionsgroupbycategory:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SessionsGroupByCategoryDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.revenuegrossgroupbydate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\RevenueGrossGroupByDateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.revenuegrossgroupbycategories:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\RevenueGrossGroupByCategoriesDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.ordersum:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderSumDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.ordersumgroupbydate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderSumGroupByDateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.orderaverage:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderAverageDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.orderaveragegroupbydate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderAverageGroupByDateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.producttopseller:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\ProductTopSellerDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.cartabandonedaverage:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\CartAbandonedAverageDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.conversionrate:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\ConversionRateDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.ordergroupbycustomer:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderGroupByCustomerDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.ordersumgroupbysource:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\OrderSumGroupBySourceDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.revenuegrossgroupbydistribution:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\revenueGrossGroupByDistributionDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.tipscards:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\TipsCardsDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.setProductTourFreeDone:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SetProductTourFreeDoneDataLoaders'
+    public: true
+
+  ps_metrics.graphql.dataloaders.setProductTourAdvancedDone:
+    class: 'PrestaShop\Module\Ps_metrics\GraphQL\DataLoaders\SetProductTourAdvancedDoneDataLoaders'
+    public: true
+
+  ps_metrics.api.http:
+    class: 'PrestaShop\Module\Ps_metrics\Api\HttpApi'
+    public: true
+    arguments:
+      - '@ps_metrics.api.client.http'
+
+  ps_metrics.handler.guzzleapi:
+    class: 'PrestaShop\Module\Ps_metrics\Handler\GuzzleApiResponseExceptionHandler'
+    public: true
+
+  ps_accounts.installer:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
+    public: true
+    arguments:
+      - '4.0'
+
+  ps_accounts.facade:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
+    public: true
+    arguments:
+      - '@ps_accounts.installer'

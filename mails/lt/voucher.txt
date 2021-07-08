@@ -1,0 +1,15 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Užsakymo ID {order_name} - Nuolaidos kodas sugeneruotas
+
+Malonus jus informuoti, kad Jūsų vardu sugeneruotas nuolaidų kuponas užsakymui {order_name}.
+
+KUPONO KODAS: {voucher_num} sumai {voucher_amount}
+
+Norėdami jį panaudoti, tiesiog nukopijuokite kodą į langelį apmokėjimo metu.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

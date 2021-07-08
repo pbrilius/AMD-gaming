@@ -1,0 +1,18 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Jūsų svečio paskyra pakeista į kliento paskyrą
+
+Sveikiname, jūsų svečio paskyra {shop_name} buvo pakeista į kliento paskyrą!
+
+El. pašto adresas: {email}
+
+Jei norite nustatyti savo slaptažodį, spustelėkite šią nuorodą:
+{url}
+
+Prie savo paskyros galite prisijungti šiame puslapyje: [{shop_name}]({shop_url})
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

@@ -1,0 +1,15 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Dėkojame už Jūsų užsakymą.
+
+Atsidėkodami mes suteikiame Jums {amount}% nuolaidą kitam Jūsų užsakymui! Šis pasiūlymas galios {days} dienas, todėl nepraleiskite šanso!
+
+Tai yra Jūsų KUPONO KODAS: {voucher_num}
+
+Norėdami gauti nuolaidą, įveskite šį kodą užsakymo metu.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

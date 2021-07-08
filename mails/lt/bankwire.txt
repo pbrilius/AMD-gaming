@@ -1,0 +1,31 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Ačiū, kad perkate parduotuvėje {shop_name}!
+
+Užsakymo ID {order_name} - Laukiama mokėjimo
+
+Jūsų užsakymas {order_name} buvo sėkmingai atliktas ir bus išsiųstas iš karto, kai gausime apmokėjimą.
+
+Mokėjimo būdas: bankinis pavedimas
+
+Jūs pasirinkote mokėti bankiniu pavedimu. Tai informacija, reikalinga pavedimui atlikti:
+
+Pervedama suma:  {total_paid}
+
+Gavėjo pavadinimas:  {bankwire_owner}
+
+Gavėjo duomenys: {bankwire_details}
+
+Banko adresas: {bankwire_address}
+
+Nurodykite savo užsakymo kodą bankinio pavedimo laukelyje „Paskirtis“.
+
+Norėdami sekti savo užsakymą ir atsisiųsti sąskaitą, eikite į [Užsakymų istorija ir informacija]({history_url}) skiltį savo paskyroje.
+
+Jei pirkote su svečio paskyra, savo užsakymą galite sekti el. parduotuvės [Siuntinio sekimas]({guest_tracking_url}) skyriuje.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

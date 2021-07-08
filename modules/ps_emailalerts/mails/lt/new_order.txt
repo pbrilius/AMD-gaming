@@ -1,0 +1,41 @@
+{shop_url}
+
+Sveikiname!
+
+Šis klientas pateikė naują užsakymą {shop_name}: {firstname} {lastname} ({email})
+
+Užsakymo informacija
+
+Užsakymas: {order_name} Pateiktas {date}
+
+Mokėjimas: {payment}
+
+Kodas	Prekė	Vieneto kaina	Kiekis	Visa kaina   {items}
+Prekės	{total_products}
+Nuolaidos	{total_discounts}
+Įpakuoti kaip dovaną	{total_wrapping}
+Pristatymas	{total_shipping}
+Įskaitant visus mokesčius	{total_tax_paid}
+Sumokėta viso	{total_paid}
+
+Vežėjas
+
+Vežėjas: {carrier}
+
+Mokėjimas: {payment}
+
+Pristatymo adresas
+
+{delivery_block_html}
+
+Sąskaitos siuntimo adresas
+
+{invoice_block_html}
+
+Kliento žinutė:
+
+{message}
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

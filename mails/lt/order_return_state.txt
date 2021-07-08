@@ -1,0 +1,13 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Užsakymo grąžinimas #{id_order_return} - Atnaujinimas
+
+Atnaujinome jūsų grąžinimo #{id_order_return} eigą, nauja būsena yra: "{state_order_return}".
+
+Norėdami sekti savo užsakymą ir atsisiųsti sąskaitą, eikite į [Užsakymų istorija ir informacija]({history_url}) skiltį savo paskyroje.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

@@ -1,0 +1,121 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Account {
+  shop_id: String
+  plan: String
+  first_sync_asked_at: Float
+  last_sync_at: Float
+  email_account: String
+  shop_url: String
+  start_sync_at: Float
+}
+
+type TipsCard {
+  uuid: ID
+  default_language: String
+  title: String
+  description: String
+  language: String
+  label: String
+  redirect_url: String
+}
+
+type Google {
+  previousValue: String
+  currentValue: String
+  category: String
+  date: String
+  hour: String
+}
+
+type GoogleDate {
+  currentPeriod: [Google!]
+  previousPeriod: [Google!]
+}
+
+type Revenue {
+  currentValue: Float
+  previousValue: Float
+  date: String
+  category: String
+  categoryId: Float
+}
+
+type RevenueDate {
+  currentPeriod: [Revenue!]
+  previousPeriod: [Revenue!]
+}
+
+type Order {
+  currentValue: Float
+  previousValue: Float
+  date: String!
+}
+
+type OrderDate {
+  currentPeriod: [Order!]
+  previousPeriod: [Order!]
+}
+
+type Product {
+  id: Float!
+  name: String!
+  quantity: Float!
+  amount: Float!
+}
+
+type ProductPeriod {
+  currentPeriod: [Product!]
+  previousPeriod: [Product!]
+}
+
+type Cart {
+  currentValue: Float
+  previousValue: Float
+}
+
+type Query {
+  account(shopId: String!): Account!
+  sessions(InputData: InputData!): Google!
+  uniqueUsers(InputData: InputData!): Google!
+  avgSessions(InputData: InputData!): Google!
+  bounceRate(InputData: InputData!): Google!
+  sessionsGroupByDate(InputData: InputData!, Granularity: String): GoogleDate!
+  sessionsGroupByCategory(IsoCode: String!, Limit: Float!, InputData: InputData!): [Google!]!
+  revenueGross(InputData: InputData!): Revenue!
+  revenueGrossGroupByDate(InputData: InputData!): RevenueDate!
+  revenueGrossByCategories(IsoCode: String!, InputData: InputData!): [Revenue!]!
+  revenueDistribution(InputData: InputData!): [Revenue!]!
+  orderSum(InputData: InputData!): Order!
+  orderSumGroupByDate(InputData: InputData!): OrderDate!
+  orderAverage(InputData: InputData!): Order!
+  orderAverageGroupByDate(InputData: InputData!): OrderDate!
+  conversionRate(InputData: InputData!): Order!
+  productTopSeller(IsoCode: String!, Limit: Float!, InputData: InputData!): ProductPeriod!
+  cartAbandonedAverage(InputData: InputData!): Cart!
+  tipscards(category: String = "", language: String = "en"): [TipsCard!]!
+}
+
+input InputData {
+  TimeDimension: TimeDimension!
+  ShopId: String!
+  compareMode: Boolean = true
+}
+
+input TimeDimension {
+  dateRange: DateRange!
+}
+
+input DateRange {
+  startDate: String!
+  endDate: String!
+}
+
+type Subscription {
+  accountUpgraded(shopId: String!): Account!
+  accountFirstSync(shopId: String!): Account!
+  accountLastSync(shopId: String!): Account!
+  accountStartSync(shopId: String!): Account!
+}

@@ -1,0 +1,14 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Rėmimo programa
+
+Už tai, kad mus rekomendavai savo draugui, mes tau dovanojame kuponą.
+Kupono kodas: {voucher_num}, su suma {voucher_num}
+
+Paprasčiausiai nukopijuokite/įklijuokite šį kodą kito užsakymo metu.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

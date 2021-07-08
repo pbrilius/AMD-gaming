@@ -1,0 +1,11 @@
+Hallo,
+
+The product {product} ist fast ausverkauft.
+Der Lagerbestand beträgt aktuell weniger als das festgelegte Minimum von {warning_coverage}.
+
+Aktueller Lagerbestand: {current_coverage}
+
+
+
+
+{shop_url} powered by PrestaShop™

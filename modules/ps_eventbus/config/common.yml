@@ -1,0 +1,31 @@
+imports:
+  - { resource: ../parameters.yml }
+
+services:
+  ps_eventbus.db:
+    class: Db
+    factory: [ 'Db', 'getInstance' ]
+
+  ps_eventbus.context:
+    class: Context
+    factory: [ 'Context', 'getContext' ]
+
+  ps_eventbus.link:
+    class: Link
+    factory: [ 'PrestaShop\Module\PsEventbus\Factory\Link', 'get' ]
+
+  ps_eventbus:
+    class: 'Ps_eventbus'
+    factory: ['Module', 'getInstanceByName']
+    arguments:
+      - 'ps_eventbus'
+
+  PrestaShop\PsAccountsInstaller\Installer\Installer:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Installer'
+    arguments:
+      - '4.0.0'
+
+  PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts:
+    class: 'PrestaShop\PsAccountsInstaller\Installer\Facade\PsAccounts'
+    arguments:
+      - '@PrestaShop\PsAccountsInstaller\Installer\Installer'

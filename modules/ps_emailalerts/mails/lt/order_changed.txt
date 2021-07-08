@@ -1,0 +1,15 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Užsakymo ID {order_name} - Užsakymas pakeistas
+
+Pardavėjas pakeitė Jūsų užsakymą {order_name} iš {shop_name}.
+
+Eikite į kliento paskyrą ir sužinokite daugiau apie ją.
+
+Jei pirkote su svečio paskyra, savo užsakymą galite sekti el. parduotuvės [Siuntinio sekimas]({guest_tracking_url}) skyriuje.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

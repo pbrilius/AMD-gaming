@@ -1,0 +1,25 @@
+<?php return array (
+  'parameters' => 
+  array (
+    'database_host' => '127.0.0.1',
+    'database_port' => '',
+    'database_name' => 'prestashop_AMD_gaming',
+    'database_user' => 'amd_gaming',
+    'database_password' => 'OG qJT"qu',
+    'database_prefix' => 'ps_',
+    'database_engine' => 'InnoDB',
+    'mailer_transport' => 'smtp',
+    'mailer_host' => '127.0.0.1',
+    'mailer_user' => NULL,
+    'mailer_password' => NULL,
+    'secret' => 'F1Nh86mPE7KMDeknpHeUFGciuH8KJMm9Gn3Astz3LGntYqXocAeZuONEUkQgizrY',
+    'ps_caching' => 'CacheMemcache',
+    'ps_cache_enable' => false,
+    'ps_creation_date' => '2021-07-08',
+    'locale' => 'lt-LT',
+    'use_debug_toolbar' => true,
+    'cookie_key' => 'tEmkvAJ9G9B4u4vOgXnZe8PHKaqz26TVPIH0kpsEvMLuWi9rLVjKF9yGoCaO7wd6',
+    'cookie_iv' => 'Gra1wsDJbgjptq9rZNpDvt4qAFvh7AgK',
+    'new_cookie_key' => 'def00000ff15a77c5603d9772939b2c99a32cda95f3d2ede0e531193d596ced0b745b1456fc470a7071ad4610db61e0c512e170a7ae307907d5770d4f1e46b103baeda21',
+  ),
+);

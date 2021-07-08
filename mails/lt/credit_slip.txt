@@ -1,0 +1,13 @@
+{shop_url}
+
+Sveiki, {firstname} {lastname},
+
+Užsakymo ID {order_name} - Grąžinimo kvitas
+
+Grąžinimo kvitas buvo sukurtas Jūsų vardu užsakymui {order_name}.
+
+Peržiūrėti grąžinimo kvitą ir atsisiųsti sąskaitą galite nuėję į [„Grąžinimo kvitai“]({history_url}) skyrių savo kliento paskyroje.
+
+[{shop_name}]({shop_url})
+
+Powered by [PrestaShop](https://www.prestashop.com/?utm_source=marchandprestashop&utm_medium=e-mail&utm_campaign=footer_1-7)

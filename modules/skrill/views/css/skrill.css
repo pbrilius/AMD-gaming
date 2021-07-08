@@ -1,0 +1,39 @@
+#cnpIframe {
+    border: none;
+    display: none !important;
+}
+.cnpForm {
+    display: block !important;
+}
+div.payment_module {
+    margin-bottom: 10px; }
+div.payment_module {
+    display: block;
+    border: 1px solid #d6d4d4;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    font-size: 17px;
+    line-height: 23px;
+    color: #333333;
+    font-weight: bold;
+    padding: 30px 40px 12px 99px;
+    letter-spacing: -1px;
+    position: relative;
+}
+div.payment_module:hover {
+    background-color: #f6f6f6;
+}
+div.payment_module button {
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+
+
+
+
+
+
+
